@@ -12,9 +12,24 @@ export function formatMoney(amount: number) {
   const salary = (amount / 1000000).toFixed(0);
   return PN.convertEnToPe(PN.sliceNumber(salary));
 }
+export function formatSalary(amount: any) {
+  let unitSalary;
+  let devide = 1;
+  amount / 1000 <= 1
+    ? ((unitSalary = ` تومان`), (devide = 1))
+    : amount / 1000000 <= 1
+      ? ((unitSalary = ` هزار تومان`), (devide = 1000))
+      : amount / 1000000000 <= 1
+        ? ((unitSalary = ` میلیون تومان`), (devide = 1000000))
+        : ((unitSalary = ` میلیارد تومان`), (devide = 1000000000));
+
+  const pSlary = PN.convertEnToPe(PN.sliceNumber((amount / devide).toFixed(1)));
+
+  return `${pSlary} ${unitSalary}`;
+}
 export function formatEnglish(array: JobType[]) {
   return array.map((item: any) => item.english);
-}   
+}
 
 export function relativeDate(from: Date) {
   const customDate = moment(from);

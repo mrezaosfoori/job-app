@@ -3,6 +3,7 @@ import jobjson from "../src/data/jobs.json";
 import JobListItem from "../src/components/JobListItem";
 import JobFilterSidebar from "@/src/components/JobFilterSidebar";
 import H1 from "@/src/components/ui/h1";
+import Link from "next/link";
 
 export default function Home() {
   
@@ -20,7 +21,13 @@ export default function Home() {
         <JobFilterSidebar />
         <div className="space-y-4 grow">
           {jobs.map((item, index) => {
-            return <JobListItem job={item} key={index} />;
+            return (
+           <div>
+               <Link key={index} href={`/jobs/${index}`}>
+                 <JobListItem job={item} slug={index} />
+               </Link>
+           </div>
+            );
           })}
         </div>
       </section>

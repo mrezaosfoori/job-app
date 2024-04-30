@@ -23,6 +23,7 @@ import { Label } from "@/src/components/ui/Lable";
 import RichTextEditor from "@/src/components/RichTextEditor";
 import { draftToMarkdown } from "markdown-draft-js";
 import LoadingButton from "@/src/components/LoadingButton";
+import { formatSalary } from "@/src/utils";
 
 const NewJobForm = () => {
   const form = useForm<createJobValues>({
@@ -40,7 +41,7 @@ const NewJobForm = () => {
   } = form;
 
   async function onSubmit(values: createJobValues) {
-    alert(JSON.stringify(values, null, 2));
+    alert(JSON.stringify(values));
   }
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
@@ -272,19 +273,27 @@ const NewJobForm = () => {
 
             <FormField
               control={control}
-              name="title"
+              name="salary"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>میزان حقوق </FormLabel>
                   <FormControl>
-                    <Input placeholder="25" {...field} />
+                    <Input placeholder="" {...field} />
                   </FormControl>
-
+                  {watch("salary") && (
+                    <div className="items-cnter flex  gap-1">
+                      <span className="text-sm">
+                        {formatSalary(watch("salary"))}
+                      </span>
+                    </div>
+                  )}
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <LoadingButton type="submit" loading={isSubmitting}>ثبت آگهی</LoadingButton>
+            <LoadingButton type="submit" loading={isSubmitting}>
+              ثبت آگهی
+            </LoadingButton>
           </form>
         </Form>
       </div>

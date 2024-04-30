@@ -12,7 +12,7 @@ export default function Navbar() {
           <span className="text-xl font-bold tracking-tight">ایران جابز</span>
         </Link>
         <Button asChild>
-          <Link href="/jobs/new">گذاشتن آگهی</Link>
+          <Link href="/jobs/new">ثبت آگهی</Link>
         </Button>
       </nav>
     </header>

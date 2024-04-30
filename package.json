@@ -31,10 +31,12 @@
     "react-dom": "^18",
     "react-draft-wysiwyg": "^1.15.0",
     "react-hook-form": "^7.51.3",
+    "react-markdown": "^9.0.1",
     "tailwind-merge": "^2.3.0",
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@types/markdown-draft-js": "^2.2.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

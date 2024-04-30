@@ -2,6 +2,17 @@ import z from "zod";
 import { jobTypes,locationTypes } from "./job-types";
 import { formatEnglish } from "../utils";
 
+
+const requiredString = z
+  .string({
+    required_error: "این فیلد الزامی است",
+  })
+  .min(1, "این فیلد الزامی است");
+const persianRequiredString = requiredString.regex(/^[\u0600-\u06FF\s]+$/, "عنوان  شغل می بایست فارسی باشد.");
+;
+const numericRequiredString = requiredString.regex(/^\d+$/, "Must be a number");
+
+
 const companyLogoSchema = z
   .custom<File | undefined>()
   .refine(
@@ -24,18 +35,15 @@ const companyLogoSchema = z
       applicationUrl: z.string().max(100).url().optional().or(z.literal("")),
     })
     .refine((data) => data.applicationEmail || data.applicationUrl, {
-      message: "Email or url is required",
+      message: "ایمیل یا ادرس اینترنی شرکت الزامی است.",
       path: ["applicationEmail"],
     });
 
 
 export const createJobSchema = z
   .object({
-    title: z
-      .string()
-      .regex(/^[\u0600-\u06FF\s]+$/, "عنوان  شغل می بایست فارسی باشد.")
-      .optional()
-      .or(z.literal("")),
+    title: persianRequiredString.max(100),
+
     type: z
       .string()
       .optional()
@@ -44,11 +52,7 @@ export const createJobSchema = z
         "انتخاب نوع شغل الزامی است",
       )
       .or(z.literal("")),
-    companyName: z
-      .string()
-      .regex(/^[\u0600-\u06FF\s]+$/, "عنوان  شغل می بایست فارسی باشد.")
-      .optional()
-      .or(z.literal("")),
+    companyName: persianRequiredString.max(100),
     companyLogo: companyLogoSchema,
     locationType: z
       .string()
@@ -59,16 +63,12 @@ export const createJobSchema = z
       )
       .or(z.literal("")),
 
-    location: z
-      .string()
-      .regex(/^[\u0600-\u06FF\s]+$/, "عنوان  شغل می بایست فارسی باشد.")
-      .optional()
-      .or(z.literal("")),
+    location: persianRequiredString.max(100),
     description: z.string().max(5000).optional(),
-    // salary: numericRequiredString.max(
-    //   9,
-    //   "Number can't be longer than 9 digits",
-    // ),
+    salary: numericRequiredString.max(
+      9,
+      "Number can't be longer than 9 digits",
+    ),
   })
   .and(applicationSchema);
 
