@@ -58,7 +58,7 @@ const JobFilterSidebar = () => {
               <option value="">همه </option>
               {jobTypes.map((item, key) => {
                 return (
-                  <option key={key} value={item.englsih}>
+                  <option key={key} value={item.english}>
                     {item.persian}
                   </option>
                 );

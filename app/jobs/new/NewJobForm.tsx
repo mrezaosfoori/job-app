@@ -20,7 +20,7 @@ import { jobTypes, locationTypes } from "@/src/data/job-types";
 import { Divide, FileUp, X } from "lucide-react";
 import LocationInput from "@/src/components/LocationInput";
 import { Label } from "@/src/components/ui/Lable";
-import RichTextEditor from "@/src/components/RichTextEditor";
+
 import { draftToMarkdown } from "markdown-draft-js";
 import LoadingButton from "@/src/components/LoadingButton";
 import { formatSalary } from "@/src/utils";
@@ -251,7 +251,7 @@ const NewJobForm = () => {
                 />
               </div>
             </div>
-
+{/* 
             <FormField
               control={control}
               name="description"
@@ -269,7 +269,7 @@ const NewJobForm = () => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
 
             <FormField
               control={control}
