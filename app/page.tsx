@@ -4,6 +4,7 @@ import JobListItem from "../src/components/JobListItem";
 import JobFilterSidebar from "@/src/components/JobFilterSidebar";
 import H1 from "@/src/components/ui/h1";
 import Link from "next/link";
+import Hero from "@/src/components/Hero";
 
 export default function Home() {
   
@@ -11,6 +12,7 @@ export default function Home() {
 
   return (
     <main className="m-auto my-10 max-w-5xl  space-y-10 px-3">
+      <Hero/>
       <div className="space-y-5  text-center ">
         <H1>
           مشاغل
