@@ -3,14 +3,16 @@ import React from "react";
 import Image from "next/image";
 import logo from "../assets/logo.png";
 import hero from "../assets/hero.png";
+import location from "../assets/location.svg";
+import search from "../assets/search.svg";
 import { Button } from "@/src/components/ui/button";
 
 function Hero() {
   return (
-    <div className="relative flex h-[50rem]   w-full flex-col items-center justify-center  " >
+    <div className=" flex   w-full flex-col items-center justify-center mb-[150px]  " >
       {/* Radial gradient for the container to give a faded look */}
 
-      <div className=" flex  p-4    ">
+      <div className=" flex flex-col md:flex-row gap-2  p-4    ">
         <section className="flex flex-1 items-center justify-center">
           <Image
             src={hero}
@@ -32,20 +34,20 @@ function Hero() {
 
         {/* image */}
       </div>
-      <div className="flex w-full flex-col  gap-6 bg-red-900  bg-opacity-5 ">
-        <div className="flex gap-3  p-4 ">
+      <div className="flex w-full flex-col  gap-4 bg-red-900  bg-opacity-5  ">
+        <div className="flex flex-col md:flex-row gap-3 items-center  p-4  md:h-[100px] ">
         <div className="flex  p-2 bg-white w-full ">
-            <div className="relative min-w-[300px] flex-1 ">
+            <div className="relative md:min-w-[300px] flex-1 ">
               <Image
-                src={logo}
+                src={search}
                 alt="hero image"
                 className=" absolute right-2 top-1/2 translate-y-[-50%] w-6 h-6"
               />
               <input type="text" placeholder="عنوان ..." className=" p-4 w-full h-full placeholder:absolute placeholder:right-10" />
             </div>
-            <div className="relative min-w-[300px] border-r-2 flex-1 ">
+            <div className="relative md:min-w-[300px] border-r-2 flex-1 ">
               <Image
-                src={logo}
+                src={location}
                 alt="hero image"
                 className=" absolute right-2  top-1/2 translate-y-[-50%] w-6 h-6"
               />
@@ -53,9 +55,10 @@ function Hero() {
             </div>
           </div>
 
-          <Button asChild ><p className="w-full h-full text-[20px] cursor-pointer max-w-[200px]">جستجو</p></Button>
+          <Button asChild ><p className="w-full h-full text-[21px] cursor-pointer max-w-[200px] font-bold min-h-[60px]">جستجو</p></Button>
+         
         </div>
-        <p>asdadad</p>
+        <p className="px-4 ">پیشنهاد:طراحی UI/UX، برنامه‌نویسی، بازاریابی دیجیتال، ساخت ویدئو و انیمیشن.</p>
       </div>
     </div>
   );
