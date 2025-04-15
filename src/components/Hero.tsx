@@ -42,7 +42,7 @@ function Hero() {
                 alt="hero image"
                     className=" w-6 h-6"
               />
-              <input type="text" placeholder="عنوان ..." className=" p-4 w-full h-full placeholder:absolute placeholder:right-10" />
+              <input type="text" placeholder="عنوان ..." className=" p-4 w-full h-full " />
             </div>
             <div className="flex md:min-w-[300px] border-r-2 flex-1  p-1 items-center gap-2 ">
               <Image
@@ -50,11 +50,11 @@ function Hero() {
                 alt="hero image"
                 className=" w-6 h-6"
               />
-              <input type="text" placeholder="مکان ..." className=" p-4  w-full h-full placeholder:absolute placeholder:right-10"  />
+              <input type="text" placeholder="مکان ..." className=" p-4  w-full h-full "  />
             </div>
           </div>
 
-          <Button asChild ><p className="w-full h-full text-[21px] cursor-pointer max-w-[200px] font-bold min-h-[60px]">جستجو</p></Button>
+          <Button asChild ><p className="w-full h-full text-[21px] cursor-pointer md:max-w-[200px] font-bold min-h-[60px]">جستجو</p></Button>
          
         </div>
         <p className="px-4 ">پیشنهاد:طراحی UI/UX، برنامه‌نویسی، بازاریابی دیجیتال، ساخت ویدئو و انیمیشن.</p>
